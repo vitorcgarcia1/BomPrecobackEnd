@@ -1,4 +1,4 @@
-# Projeto de Banco de Dados – Mini-mundo Comercial
+# Projeto de Banco de Dados – Mini-mundo (Mercadinho Bom Preço)
 
 Este repositório contém a implementação completa do banco de dados relacional baseado no modelo lógico e DER desenvolvido durante o projeto.
 
