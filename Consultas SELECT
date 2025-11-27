@@ -1,0 +1,31 @@
+-- 1. Listar produtos com estoque baixo
+SELECT nome, qtd_estoq
+FROM Produto
+WHERE qtd_estoq < 100
+ORDER BY qtd_estoq ASC;
+
+-- 2. Listar vendas com cliente e funcionário
+SELECT v.id_venda, v.data, v.valor_total,
+       c.nome AS cliente,
+       f.nome AS funcionario
+FROM Venda v
+JOIN Cliente c ON v.id_cliente = c.id_cliente
+JOIN Funcionario f ON v.id_funcionario = f.id_funcionario;
+
+-- 3. Buscar produtos por categoria
+SELECT p.nome, p.preco, cat.nome AS categoria
+FROM Produto p
+JOIN Categoria cat ON p.id_categoria = cat.id_categoria
+WHERE cat.nome = 'Alimentos';
+
+-- 4. Pagamentos realizados
+SELECT p.id_pagamento, p.forma_pagamento, p.valor, v.id_venda
+FROM Pagamento p
+JOIN Venda v ON p.id_venda = v.id_venda
+ORDER BY p.data DESC
+LIMIT 5;
+
+-- 5. Clientes cadastrados no último mês
+SELECT nome, data_cadastro
+FROM Cliente
+WHERE data_cadastro >= DATE_SUB(NOW(), INTERVAL 30 DAY);
