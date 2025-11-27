@@ -1,0 +1,47 @@
+-- Categoria
+INSERT INTO Categoria (nome, descricao) VALUES
+('Enlatados', 'Enlatados em geral'),
+('Limpeza', 'Produtos de limpeza'),
+('Embalados', 'Alimentos embalados');
+
+-- Fornecedor
+INSERT INTO Fornecedor (nome, cnpj, telefone, email) VALUES
+('YPE', '12345678000199', '11990001122', 'contato@ype.com'),
+('Quero',  '98765432000155', '11991112233', 'contato@quero.com');
+
+-- Produto
+INSERT INTO Produto (nome, preco, qtd_estoq, validade, id_categoria, id_fornecedor, status) VALUES
+('Milho Enlatado Quero', 4.90, 120, '2025-04-10', 1, 1, 'ativo'),
+('Arroz 5kg', 22.50, 80, '2026-01-01', 3, 2, 'ativo'),
+('Detergente 500ml', 2.90, 200, NULL, 2, 1, 'ativo');
+
+-- Cliente
+INSERT INTO Cliente (nome, data_nascimento, cpf, telefone, email, endereco, numero, bairro, cidade, estado, cep, data_cadastro)
+VALUES
+('João Silva', '1990-05-12', '12345678901', '11995554444', 'joao@email.com',
+ 'Rua A', '100', 'Centro', 'SP', 'SP', '01001000', NOW()),
+('Maria Oliveira', '1985-11-02', '98765432100', '11990002211', 'maria@email.com',
+ 'Rua B', '200', 'Bairro B', 'SP', 'SP', '02002000', NOW());
+
+-- Funcionário
+INSERT INTO Funcionario (nome, cpf, data_nascimento, sexo, cargo, telefone, email,
+endereco, bairro, numero, cep, cidade, estado, data_admissao, salario, login, senha, status)
+VALUES
+('Carlos Mendes', '11223344556', '1992-03-10', 'M', 'Atendente', '11997774455', 'carlos@empresa.com',
+ 'Rua C', 'Bairro C', '50', '03003000', 'SP', 'SP', '2024-02-01', 2200.00, 'carlos', '123456', 'ativo');
+
+-- Venda
+INSERT INTO Venda (data, valor_total, id_cliente, id_funcionario)
+VALUES
+(NOW(), 32.40, 1, 1);
+
+-- Item_venda
+INSERT INTO Item_Venda (quantidade, preco_unitario, id_venda, id_produto)
+VALUES
+(2, 9.90, 1, 1),
+(1, 12.60, 1, 3);
+
+-- Pagamento
+INSERT INTO Pagamento (forma_pagamento, valor, data, id_venda)
+VALUES
+('pix', 32.40, NOW(), 1);
