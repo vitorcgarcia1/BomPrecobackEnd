@@ -1,0 +1,14 @@
+-- 1. Atualizar estoque após compra
+UPDATE Produto
+SET qtd_estoq = qtd_estoq - 2
+WHERE id_produto = 1;
+
+-- 2. Alterar status de um produto
+UPDATE Produto
+SET status = 'inativo'
+WHERE id_produto = 3;
+
+-- 3. Atualizar e-mail de cliente
+UPDATE Cliente
+SET email = 'email.up@sql.com'
+WHERE id_cliente = 2;
