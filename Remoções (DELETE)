@@ -1,0 +1,11 @@
+-- 1. Excluir pagamento específico
+DELETE FROM Pagamento
+WHERE id_pagamento = 1;
+
+-- 2. Excluir item de venda
+DELETE FROM Item_Venda
+WHERE id_item = 2;
+
+-- 3. Remover fornecedor sem produtos relacionados
+DELETE FROM Fornecedor
+WHERE id_fornecedor = 2;
